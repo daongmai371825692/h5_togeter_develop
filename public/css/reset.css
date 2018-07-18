@@ -1,0 +1,26 @@
+/* CSS Document */
+/* 基本重置样式 */
+html,body,ul,li,ol,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,form,table,span,a,i,em,b,strong,img,input { margin:0; padding:0;}
+i,em { font-style:normal; }
+h1,h2,h3,h4,h5,h6,b,strong { font-weight:normal; }
+img { border:none; display: block;}
+input{ outline:none; border:0;}
+body{ color:#333; font:12px "微软雅黑","Arial Narrow",HELVETICA; }
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+ul li,ol li, li { list-style:none; }
+a{ text-decoration:none; color:#666; }
+a:hover{ color:#f30; }
+/* 公用样式 */
+.main{
+		width:1000px;
+		margin:0 auto;
+		border:1px solid #000;/******最后去掉border*****/
+	}
+.relative{ position:relative; }
+.fl{ float:left; }
+.fr{ float:right; }
+.clearfix:after{ content:""; clear:both; visibility:hidden; overflow:hidden; display:block; 	height:0; font-size:1px;}
