@@ -1,6 +1,6 @@
 <template>
      <app-content>
-        <NoSearchHeader :rightBtn="rightBtn">
+        <NoSearchHeader>
         		
         </NoSearchHeader> 
  
@@ -10,7 +10,7 @@
 export default{
 	data(){
 		return{
-			rightBtn:'新增地址'
+		
 		}
 	}
 }

@@ -5,12 +5,15 @@ import store from './store'
 
 Vue.prototype.$pubsub = new Vue();
 
-import AppContent from './common/AppContent.vue'
+import AppContent from './components/common/AppContent.vue'
 Vue.component('app-content', AppContent);
 
 //日期过滤器
 import {formatDate} from './filter/dateFilter'
 Vue.filter('formatDate', formatDate);
+
+import NoSearchHeader from './components/common/NoSearchHeader';
+Vue.component('NoSearchHeader',NoSearchHeader)
 
 new Vue({
   router,
