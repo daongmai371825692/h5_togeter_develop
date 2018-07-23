@@ -1,8 +1,8 @@
 <template>
     <header class="noSearchHeader">
-          <button class="leftBtn" v-if='leftBtn'>{{leftBtn}}</button>
-          <h1>选择地址</h1>
-          <button class="rightBtn" v-if='rightBtn'>{{rightBtn}}</button>
+    	  <slot name='leftBtn' class='leftBtn'></slot>
+          <h1>{{title}}</h1>
+          <slot name='rightBtn' class='rightBtn'></slot>
     </header>
 
 </template>
@@ -15,7 +15,20 @@ export default{
 			
 		}
 	},
-	props:['leftBtn','rightBtn'],
+	
+	computed:{
+		...Vuex.mapState({
+			title:state=>state.appTitle.title
+		})
+	},
+	methods:{
+		handleRightBtn(){
+			this.$router.push({
+				name:'redpacket'
+				
+			})
+		}
+	},
 	mounted(){
 		
 	}
@@ -24,8 +37,10 @@ export default{
 <style scoped>
 .noSearchHeader{
     line-height: 0.44rem;
+    height: 0.44rem;
     width:100%;
- 
+ 	top: 0;
+ 	left: 0;
   	position: sticky;
   	text-align: center;
   	color: #fff;

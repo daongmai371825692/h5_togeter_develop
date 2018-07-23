@@ -1,90 +1,104 @@
 <template>
-     <app-content>
+     <div>
+     	<NoSearchHeader>
+     	  <!--如果你需要的设置左边的按钮-->
+    	   <button slot="leftBtn" class="leftBtn"></button>
+           <!--中间由全局调控所以没有-->
+           <!--如果你需要的设置左边的按钮-->
+           <button slot="rightBtn" class="rightBtn" @click='handleControl' ref='control'>管理</button>
+     		
+     	</NoSearchHeader> 
+     	<app-content>
      	<!--如果你想有按钮的话请设置自定义属性   rightBtn 右边的按钮 ,leftBtn 左边的按钮-->
-        <NoSearchHeader :rightBtn="rightBtn"></NoSearchHeader> 
- 		<div class='clearAllWrap paddingLeftRight30'>
- 			<div class="iconWrap">
+        
+ 		<div class='clearAllWrap paddingLeftRight30' v-if="isShowControl">
+ 			<div class="iconWrap" >
  				<i class="_icon _icon_delete"></i>
  				<span>清理</span>
  			</div>
  			<button class="clearBtn">删除</button>
  		</div>
- 		<ul class="listWrap">
- 			<li class="goodsWrap">
- 				<i class="_icon _icon_tick"></i>
- 				
- 				<div class="box">
- 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
- 					<dl class="listInfo">
- 						<dt class="infoName">精品双人套餐</dt>
- 						<dd class="infoDetail">卡布基诺</dd>
- 						<dd class="infoPrice">¥299</dd>
- 					</dl>
- 					<div class="goodNum">
-	 					<i class="_icon _icon_minus"></i>
-	 					<span class="num">1</span>
-	 				    <i class="_icon _icon_add"></i>
+ 		<div class="cartContent">
+ 			<div class="noGoodWrap" v-if="false">
+ 				<p>你还没有添加任何商品哦~~</p>
+ 			</div>
+ 			<ul class="listWrap">
+	 			<li class="goodsWrap">
+	 				<i class="_icon _icon_tick"></i>
+	 				
+	 				<div class="box">
+	 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
+	 					<dl class="listInfo">
+	 						<dt class="infoName">精品双人套餐</dt>
+	 						<dd class="infoDetail">卡布基诺</dd>
+	 						<dd class="infoPrice">¥299</dd>
+	 					</dl>
+	 					<div class="goodNum">
+		 					<i class="_icon _icon_minus"></i>
+		 					<span class="num">1</span>
+		 				    <i class="_icon _icon_add"></i>
+		 				</div>
 	 				</div>
- 				</div>
- 				
- 			</li>
- 			<li class="goodsWrap">
- 				<i class="_icon _icon_circle"></i>
- 				
- 				<div class="box">
- 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
- 					<dl class="listInfo">
- 						<dt class="infoName">精品双人套餐</dt>
- 						<dd class="infoDetail">卡布基诺</dd>
- 						<dd class="infoPrice">¥299</dd>
- 					</dl>
- 					<div class="goodNum">
-	 					<i class="_icon _icon_minus"></i>
-	 					<span class="num">1</span>
-	 				    <i class="_icon _icon_add"></i>
+	 				
+	 			</li>
+	 			<li class="goodsWrap">
+	 				<i class="_icon _icon_circle"></i>
+	 				
+	 				<div class="box">
+	 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
+	 					<dl class="listInfo">
+	 						<dt class="infoName">精品双人套餐</dt>
+	 						<dd class="infoDetail">卡布基诺</dd>
+	 						<dd class="infoPrice">¥299</dd>
+	 					</dl>
+	 					<div class="goodNum">
+		 					<i class="_icon _icon_minus"></i>
+		 					<span class="num">1</span>
+		 				    <i class="_icon _icon_add"></i>
+		 				</div>
 	 				</div>
- 				</div>
- 				
- 			</li>
- 		</ul>
- 		<ul class="listWrap">
- 			<li class="goodsWrap">
- 				<i class="_icon _icon_tick"></i>
- 				
- 				<div class="box">
- 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
- 					<dl class="listInfo">
- 						<dt class="infoName">精品双人套餐</dt>
- 						<dd class="infoDetail">卡布基诺</dd>
- 						<dd class="infoPrice">¥299</dd>
- 					</dl>
- 					<div class="goodNum">
-	 					<i class="_icon _icon_minus"></i>
-	 					<span class="num">1</span>
-	 				    <i class="_icon _icon_add"></i>
+	 				
+	 			</li>
+	 		</ul>
+	 		<ul class="listWrap">
+	 			<li class="goodsWrap">
+	 				<i class="_icon _icon_tick"></i>
+	 				
+	 				<div class="box">
+	 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
+	 					<dl class="listInfo">
+	 						<dt class="infoName">精品双人套餐</dt>
+	 						<dd class="infoDetail">卡布基诺</dd>
+	 						<dd class="infoPrice">¥299</dd>
+	 					</dl>
+	 					<div class="goodNum">
+		 					<i class="_icon _icon_minus"></i>
+		 					<span class="num">1</span>
+		 				    <i class="_icon _icon_add"></i>
+		 				</div>
 	 				</div>
- 				</div>
- 				
- 			</li>
- 			<li class="goodsWrap">
- 				<i class="_icon _icon_circle"></i>
- 				
- 				<div class="box">
- 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
- 					<dl class="listInfo">
- 						<dt class="infoName">精品双人套餐</dt>
- 						<dd class="infoDetail">卡布基诺</dd>
- 						<dd class="infoPrice">¥299</dd>
- 					</dl>
- 					<div class="goodNum">
-	 					<i class="_icon _icon_minus"></i>
-	 					<span class="num">1</span>
-	 				    <i class="_icon _icon_add"></i>
+	 				
+	 			</li>
+	 			<li class="goodsWrap">
+	 				<i class="_icon _icon_circle"></i>
+	 				
+	 				<div class="box">
+	 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
+	 					<dl class="listInfo">
+	 						<dt class="infoName">精品双人套餐</dt>
+	 						<dd class="infoDetail">卡布基诺</dd>
+	 						<dd class="infoPrice">¥299</dd>
+	 					</dl>
+	 					<div class="goodNum">
+		 					<i class="_icon _icon_minus"></i>
+		 					<span class="num">1</span>
+		 				    <i class="_icon _icon_add"></i>
+		 				</div>
 	 				</div>
- 				</div>
- 				
- 			</li>
- 		</ul>
+	 				
+	 			</li>
+	 		</ul>
+ 		</div>
      	<div class="goodRecommend">
      		<h2 class="recommendTitle">商品推荐</h2>
      		<ul class="recommendList">
@@ -140,17 +154,38 @@
      		</label>
      		
      		<label>合计：<span>¥29.9</span></label>
-     		<button class="payBtn">去结算</button>
+     		<div class="payBtn">去结算<span class="payNum">(1)</span></div>
      	</div>
      
      </app-content>
+     <router-view></router-view>
+     </div>
 </template>
 <script>
+import Vuex from 'vuex';
 export default{
 	data(){
 		return{
-			rightBtn:'新增地址'
+			isShowControl:false
 		}
+	},
+	computed:{
+		
+	},
+	methods:{
+		handleControl(){
+			this.isShowControl =!this.isShowControl;
+			if(this.isShowControl){
+				
+				this.$refs.control.innerText = '完成'
+			}else{
+				this.$refs.control.innerText = '管理'
+			}
+		
+		}
+	},
+	mounted(){
+
 	}
 }
 </script>
@@ -161,6 +196,7 @@ export default{
 	background: #FFFFFF;
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 0.1rem;
 }
 .paddingLeftRight30{
 	padding: 0 0.15rem 0 0.15rem;
@@ -201,7 +237,7 @@ export default{
 }
 .listWrap,.goodRecommend{
 	background: #fff;
-	margin-top: 0.1rem;
+	
 }
 .goodsWrap{
 	padding: 0.19rem 0 0 0.15rem;
@@ -351,6 +387,29 @@ label{
 	background: #f87d88;
 	color: #FFFFFF;
 	font-size: 0.14rem;
+	text-align: center;
+	line-height: 0.44rem;
 	
+}
+.payNum{
+	display: inline-block;
+	transform: translateY(-0.01rem);
+}
+em{
+	text-decoration: line-through ;
+}
+.noGoodWrap{
+	height: 1.8rem;
+	background: #fff url(../../../public/img/mockImg/cart/noGoodBg.jpg)no-repeat;
+	background-size: 0.5rem auto;
+	background-position: 50% 50%;
+	position: relative;
+}
+.noGoodWrap p{
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	bottom: 0.3rem;
+	left: 0;
 }
 </style>

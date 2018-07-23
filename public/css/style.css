@@ -35,3 +35,8 @@
 }
 
 /*******************************购物车的icon结束*******************************/
+
+._icon_backLeftArrow{
+	background: url(../img/shouye_tubiao_ios/@1x/nav_btn_back_nor.png);
+	background-size:100% 100%;
+}
