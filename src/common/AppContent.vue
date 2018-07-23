@@ -24,8 +24,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: .49rem;
-    background: #F87D88;
+    bottom: 0.49rem;
     overflow: hidden;
     font-size:0.16rem;
 }

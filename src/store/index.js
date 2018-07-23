@@ -76,7 +76,7 @@ const store = new Vuex.Store({
 
 })
 
-console.log(store);
+//console.log(store);
 
 
 export default store;
