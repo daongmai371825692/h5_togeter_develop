@@ -49,24 +49,7 @@
 	 				</div>
 	 				
 	 			</li>
-	 			<!--<li class="goodsWrap">
-	 				<i class="_icon _icon_circle"></i>
-	 				
-	 				<div class="box">
-	 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
-	 					<dl class="listInfo">
-	 						<dt class="infoName">精品双人套餐</dt>
-	 						<dd class="infoDetail">卡布基诺</dd>
-	 						<dd class="infoPrice">¥299</dd>
-	 					</dl>
-	 					<div class="goodNum">
-		 					<i class="_icon _icon_minus"></i>
-		 					<span class="num">1</span>
-		 				    <i class="_icon _icon_add"></i>
-		 				</div>
-	 				</div>
-	 				
-	 			</li>-->
+	 			
 	 		</ul>
 	 			
  		</div>
@@ -122,13 +105,13 @@
      </app-content>
     	 <div class="paymentWrap">
      		<label for="all">
-     		<!--	<input type="checkbox" id="all" v-model="isAllChecked"/>-->
+     		<!--	<input type="checkbox" id="all" />-->
      			<i class="_icon " :class="isAllChecked?'_icon_tick':'_icon_circle'" @click="allChecked()" id="#all"></i>
      			<span class="allText">全选</span>
      		</label>
      		
-     		<label>合计：<span>¥29.9</span></label>
-     		<div class="payBtn">去结算<span class="payNum">(1)</span></div>
+     		<label>合计：<span>¥{{AllcurrentSelectedMoney}}</span></label>
+     		<div class="payBtn">去结算<span class="payNum">({{currentSelected.length}})</span></div>
      	</div>
      <router-view></router-view>
      </div>
@@ -147,10 +130,6 @@ export default{
 			isAllChecked:true,
 			//标记的商品
 			checkedArray:[]
-		
-		
-		
-			
 		}
 	},
 	
@@ -158,13 +137,17 @@ export default{
 		//获得全局购物车对象
 		...Vuex.mapState({
 			cartGoodsList:state=>state.cart.cart
+		}),
+		...Vuex.mapGetters({
+			currentSelected:'cart/currentSelected',
+			AllcurrentSelectedMoney:'cart/AllcurrentSelectedMoney'
 		})
 	},
 	watch:{
 		//监听购物车，将购物车的数组给到选择的数组
 		cartGoodsList(newVal){
 			this.selectArray = Object.keys(newVal);
-			
+		
 		},
 		selectArray(newVal){
 			let  cartGoodsList= this.cartGoodsList;
@@ -180,10 +163,11 @@ export default{
 				this.isAllChecked =true
 			}
 		}
+		
 	},
 	methods:{
 		handleControl(){
-			
+		
 			this.isShowControl =!this.isShowControl;
 			if(this.isShowControl){
 				
@@ -209,7 +193,6 @@ export default{
 			
 			let carList = this.cartGoodsList;
 		
-			
 			if(goods.selected){
 	
 				this.$store.dispatch('cart/checkedGoodsInCart',goods)
@@ -246,14 +229,13 @@ export default{
 		},
 		//全选
 		allChecked(){
+			console.log(this.$store.getters['cart/currentSelected'])
 			if(this.selectArray){
 				this.$store.dispatch('cart/checkedAllGoodsFromCart')
-		   	    this.isAllChecked=!this.isAllChecked;
+		   		
+		   			this.isAllChecked=!this.isAllChecked;
+		   		
 			}
-			
-		    
-		   // console.log(this.isAllChecked)
-	
 		}
 	},
 	mounted(){
@@ -261,8 +243,14 @@ export default{
 				this.selectArray = Object.keys(this.cartGoodsList);
 				this.checkedArray = Object.keys(this.cartGoodsList);
 				
+				
+				
 		}
 	  
+	},
+	
+	deactivated(){
+		this.isAllChecked=true;
 	}
 }
 </script>
