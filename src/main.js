@@ -7,7 +7,9 @@ Vue.prototype.$pubsub = new Vue();
 
 import AppContent from './components/common/AppContent.vue'
 Vue.component('app-content', AppContent);
-
+//左右滑动
+import LeftRingt from './common/LRrolling'
+Vue.component('LeftRingt',LeftRingt)
 //日期过滤器
 import {formatDate} from './filter/dateFilter'
 Vue.filter('formatDate', formatDate);

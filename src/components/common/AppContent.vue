@@ -10,9 +10,14 @@
 <script>
 export default {
     mounted(){
-        new IScroll(this.$refs.content, {
-
+       let myScroll = new IScroll(this.$refs.content, {
+            scrollbars: true, mouseWheel: true,
+                  probeType:3
         });
+         
+        myScroll.on('beforeScrollStart',()=>{
+               myScroll.refresh()
+           })
     }
 }
 </script>
@@ -25,11 +30,8 @@ export default {
     top: 0.44rem;
     left: 0;
     bottom: .49rem;
-<<<<<<< HEAD:src/common/AppContent.vue
-    background: #fff;
-=======
 	background: #f5f5f5;
->>>>>>> 902716dc2106ab6ac102088ec0b68e9a4c43e596:src/components/common/AppContent.vue
+    bottom: 0.49rem;
     overflow: hidden;
     font-size:0.16rem;
 }
