@@ -25,7 +25,7 @@ export default {
     top: 0;
     left: 0;
     bottom: .49rem;
-    background: #F87D88;
+    background: #fff;
     overflow: hidden;
     font-size:0.16rem;
 }
