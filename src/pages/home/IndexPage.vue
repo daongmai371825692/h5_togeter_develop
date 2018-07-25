@@ -21,7 +21,7 @@
         <div class="swiper-container box" ref="box">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(item,index) in list " :key="index">
-                   {{}}
+                   {{item.name}}
                 </div>
             </div>
         </div>
