@@ -8,14 +8,17 @@ import Hot from '@/pages/hot/IndexPage.vue'
 import Cart from '@/pages/cart/IndexPage.vue'
 import Mine from '@/pages/mine/IndexPage.vue'
 import City from '@/pages/common/city.vue'
+
+import HomeList from '@/pages/common/home.vue'
+
+
 export default new Router({
   routes: [
     {
       name: 'home',
       path: '/home',
       alias: '/',
-      component: Home
-    },
+      component: Home,},
     {
         name: 'hot',
         path: '/hot',
@@ -39,6 +42,11 @@ export default new Router({
         name:'city',
         path:'city',
         component:City
+    },
+    {
+        name:'home-list',
+        path:'home-list',
+        component:HomeList
     }
 
   ]

@@ -1,10 +1,11 @@
 <template>
     <div class="rolling" ref="rolling">
            <ul class="banner">
-               <li v-for="(item,index) in bannerlist" :key="index" @click="bannerList(index)"
+               <li v-for="(item,index) in bannerlist" :key="index" @click="bannerList(index,item.path)"
                :class="{active:bannerlength ==index}">
                    {{item.name}}
                </li>
+               
                <li>
                     <div class="box" @click="openlist()">
                         <div></div>
@@ -14,6 +15,7 @@
                     </div>
                </li>
            </ul>
+            <router-view></router-view>
          <transition name="slide">
             <div class="commoditylist" v-show="showNav">
                 <ul class="commodity">
@@ -26,6 +28,8 @@
                 </ul>
             </div>
         </transition>
+
+       
     </div>
 </template>
 
@@ -45,7 +49,7 @@ export default {
                 {name:'熟食',path:''}
             ],
             bannerlist:[
-                {name:'下午茶',path:''},
+                {name:'下午茶',path:'home-list'},
                 {name:'甜品',path:''},
                 {name:'水果',path:''},
                 {name:'甜食',path:''}
@@ -71,8 +75,10 @@ export default {
         close(){
             this.showNav=false
         },
-        bannerList(index){
+        bannerList(index,path){
           this.bannerlength=index
+          console.log(path)
+          this.$router.push({name:path})
         }
     }
 }
@@ -92,7 +98,7 @@ export default {
    position: relative;
 }
 .banner li .box{
-    width: 0.3rem;
+    width: 35%;
     position: absolute;
     left: 40%;
     top:20%

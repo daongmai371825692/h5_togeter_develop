@@ -10,9 +10,14 @@
 <script>
 export default {
     mounted(){
-        new IScroll(this.$refs.content, {
-
+       let myScroll = new IScroll(this.$refs.content, {
+            scrollbars: true, mouseWheel: true,
+                  probeType:3
         });
+         
+        myScroll.on('beforeScrollStart',()=>{
+               myScroll.refresh()
+           })
     }
 }
 </script>
