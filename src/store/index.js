@@ -11,6 +11,10 @@ const store = new Vuex.Store({
 
 })
 
+<<<<<<< HEAD
+=======
+//console.log(store);
+>>>>>>> sui
 
 
 export default store;

@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
      <div>
      	<NoSearchHeader>
      	  <!--如果你需要的设置左边的按钮-->
@@ -157,6 +158,41 @@
      		<div class="payBtn">去结算<span class="payNum">(1)</span></div>
      	</div>
      
+=======
+     <app-content>
+         购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br>
+             购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br> 购物车<br>
+        购物车<br>
+>>>>>>> sui
      </app-content>
      <router-view></router-view>
      </div>

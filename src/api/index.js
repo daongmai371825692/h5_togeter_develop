@@ -23,8 +23,15 @@ const NOW_PLAYING_URL = '/v4/api/film/now-playing';
 */
 const COMING_SOON_URL = '/v4/api/film/coming-soon';
 
+
+//城市列表借口
+const CITY_LIST_URL ='/v4/api/city'
+
+
+
 export default {
     HOME_BANNER_URL,
     NOW_PLAYING_URL,
-    COMING_SOON_URL
+    COMING_SOON_URL,
+    CITY_LIST_URL,
 }

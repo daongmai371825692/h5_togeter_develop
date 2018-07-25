@@ -57,3 +57,20 @@ export function getNowPlayingData(page, count){
         })
     })
 }
+
+
+//城市列表接口
+
+export function getcity(){
+    return new Promise((resolve,reject)=>{
+        axios.get(API.CITY_LIST_URL,{
+            __t:new Date().getTime()
+        })
+        .then(res=>{
+            console.log('请求成功')
+        })
+        .catch(error=>{
+            console.log('请求失败')
+        })
+    })
+}
