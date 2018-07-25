@@ -1,5 +1,5 @@
 <template>
-     <div>
+     <div class="wrap">
      	<NoSearchHeader>
      	  <!--如果你需要的设置左边的按钮-->
     	   <button slot="leftBtn" class="leftBtn"></button>
@@ -9,39 +9,47 @@
      		
      	</NoSearchHeader> 
      	<app-content>
-     	<!--如果你想有按钮的话请设置自定义属性   rightBtn 右边的按钮 ,leftBtn 左边的按钮-->
+     	
         
- 		<div class='clearAllWrap paddingLeftRight30' v-if="isShowControl">
+ 		<transition name='fade'>
+ 			<div class='clearAllWrap paddingLeftRight30' v-if="isShowControl">
  			<div class="iconWrap" >
  				<i class="_icon _icon_delete"></i>
  				<span>清理</span>
  			</div>
- 			<button class="clearBtn">删除</button>
+ 			<button class="clearBtn" @click='deleteGoods()'>删除</button>
  		</div>
+ 		</transition>
  		<div class="cartContent">
- 			<div class="noGoodWrap" v-if="false">
- 				<p>你还没有添加任何商品哦~~</p>
- 			</div>
+ 			<transition name='fade'>
+ 				<div class="noGoodWrap" v-if="selectArray.length==0">
+ 					<p>你还没有添加任何商品哦~~</p>
+ 				</div>	
+ 			</transition>
  			<ul class="listWrap">
-	 			<li class="goodsWrap">
-	 				<i class="_icon _icon_tick"></i>
+	 			<li class="goodsWrap" v-for="(item,key) in cartGoodsList" :key="key">
+	 				<div class="isCheckedImgWrap">
+	 				<i class="_icon" :class="item.selected?'_icon_tick':'_icon_circle'" ref='iconSign'  @click='isChecked(item)'></i>
+	 				
+	 				</div>
+	 				
 	 				
 	 				<div class="box">
-	 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
+	 					<img :src= 'item.imgPath' class="goodImg"/>
 	 					<dl class="listInfo">
-	 						<dt class="infoName">精品双人套餐</dt>
-	 						<dd class="infoDetail">卡布基诺</dd>
-	 						<dd class="infoPrice">¥299</dd>
+	 						<dt class="infoName">{{item.title}}</dt>
+	 						<dd class="infoDetail">{{item.info}}</dd>
+	 						<dd class="infoPrice">¥{{item.money}}</dd>
 	 					</dl>
 	 					<div class="goodNum">
-		 					<i class="_icon _icon_minus"></i>
-		 					<span class="num">1</span>
-		 				    <i class="_icon _icon_add"></i>
+		 					<i class="_icon _icon_minus" @click="reduceGoods(item)"></i>
+		 					<span class="num">{{item.num}}</span>
+		 				    <i class="_icon _icon_add "  @click="addGoods(item)"></i>
 		 				</div>
 	 				</div>
 	 				
 	 			</li>
-	 			<li class="goodsWrap">
+	 			<!--<li class="goodsWrap">
 	 				<i class="_icon _icon_circle"></i>
 	 				
 	 				<div class="box">
@@ -58,46 +66,9 @@
 		 				</div>
 	 				</div>
 	 				
-	 			</li>
+	 			</li>-->
 	 		</ul>
-	 		<ul class="listWrap">
-	 			<li class="goodsWrap">
-	 				<i class="_icon _icon_tick"></i>
-	 				
-	 				<div class="box">
-	 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
-	 					<dl class="listInfo">
-	 						<dt class="infoName">精品双人套餐</dt>
-	 						<dd class="infoDetail">卡布基诺</dd>
-	 						<dd class="infoPrice">¥299</dd>
-	 					</dl>
-	 					<div class="goodNum">
-		 					<i class="_icon _icon_minus"></i>
-		 					<span class="num">1</span>
-		 				    <i class="_icon _icon_add"></i>
-		 				</div>
-	 				</div>
-	 				
-	 			</li>
-	 			<li class="goodsWrap">
-	 				<i class="_icon _icon_circle"></i>
-	 				
-	 				<div class="box">
-	 					<img src= '../../../public/img/mockImg/cart/good.jpg' class="goodImg"/>
-	 					<dl class="listInfo">
-	 						<dt class="infoName">精品双人套餐</dt>
-	 						<dd class="infoDetail">卡布基诺</dd>
-	 						<dd class="infoPrice">¥299</dd>
-	 					</dl>
-	 					<div class="goodNum">
-		 					<i class="_icon _icon_minus"></i>
-		 					<span class="num">1</span>
-		 				    <i class="_icon _icon_add"></i>
-		 				</div>
-	 				</div>
-	 				
-	 			</li>
-	 		</ul>
+	 			
  		</div>
      	<div class="goodRecommend">
      		<h2 class="recommendTitle">商品推荐</h2>
@@ -146,34 +117,73 @@
      			</li>
      		</ul>
      	</div>
-     	<div class="paymentWrap">
+     	
+     
+     </app-content>
+    	 <div class="paymentWrap">
      		<label for="all">
-     			<input type="checkbox" id="all"/>
-     			<i class="_icon _icon_tick allBg"></i>
+     		<!--	<input type="checkbox" id="all" v-model="isAllChecked"/>-->
+     			<i class="_icon " :class="isAllChecked?'_icon_tick':'_icon_circle'" @click="allChecked()" id="#all"></i>
      			<span class="allText">全选</span>
      		</label>
      		
      		<label>合计：<span>¥29.9</span></label>
      		<div class="payBtn">去结算<span class="payNum">(1)</span></div>
      	</div>
-     
-     </app-content>
      <router-view></router-view>
      </div>
 </template>
 <script>
 import Vuex from 'vuex';
+
 export default{
 	data(){
 		return{
-			isShowControl:false
+			//是否显示管理
+			isShowControl:false,
+			//选中的商品
+			selectArray:[],
+			//是否全选
+			isAllChecked:true,
+			//标记的商品
+			checkedArray:[]
+		
+		
+		
+			
 		}
 	},
+	
 	computed:{
+		//获得全局购物车对象
+		...Vuex.mapState({
+			cartGoodsList:state=>state.cart.cart
+		})
+	},
+	watch:{
+		//监听购物车，将购物车的数组给到选择的数组
+		cartGoodsList(newVal){
+			this.selectArray = Object.keys(newVal);
+			
+		},
+		selectArray(newVal){
+			let  cartGoodsList= this.cartGoodsList;
+			return Object.keys(cartGoodsList)
+		},
 		
+		checkedArray(newVal){
+			
+			if(Object.keys(this.cartGoodsList).length!=newVal.length){
+					
+					this.isAllChecked =false
+			}else{
+				this.isAllChecked =true
+			}
+		}
 	},
 	methods:{
 		handleControl(){
+			
 			this.isShowControl =!this.isShowControl;
 			if(this.isShowControl){
 				
@@ -182,10 +192,77 @@ export default{
 				this.$refs.control.innerText = '管理'
 			}
 		
+		},
+		//增加商品
+		addGoods(goods){
+			
+			this.$store.dispatch('cart/addGoodsFromCart',goods)
+			
+		},
+		//减少商品
+		reduceGoods(goods){
+		    this.$store.dispatch('cart/reduceGoodsFromCart',goods)
+		
+		},
+		//切换选中状态
+		isChecked(goods){
+			
+			let carList = this.cartGoodsList;
+		
+			
+			if(goods.selected){
+	
+				this.$store.dispatch('cart/checkedGoodsInCart',goods)
+				
+				this.checkedArray =this.checkedArray.filter(item=>{
+					
+							 return carList[item].selected
+							 
+						})
+				
+			}else{
+					if(this.checkedArray.indexOf(`p${goods.id}`) == -1){
+			
+						this.checkedArray.push(`p${goods.id}`)
+						
+						this.$store.dispatch('cart/checkedGoodsInCart',goods)
+					}
+					
+			}
+		},
+		//删除选中商品
+		deleteGoods(){
+		
+			let carList = this.cartGoodsList;
+			
+			for(var i in carList){
+				
+				if(carList[i]['selected']){
+					
+						this.$store.dispatch('cart/deleteGoodsFromCart',carList[i])
+				}
+			}
+		    
+		},
+		//全选
+		allChecked(){
+			if(this.selectArray){
+				this.$store.dispatch('cart/checkedAllGoodsFromCart')
+		   	    this.isAllChecked=!this.isAllChecked;
+			}
+			
+		    
+		   // console.log(this.isAllChecked)
+	
 		}
 	},
 	mounted(){
-
+		if(this.cartGoodsList){
+				this.selectArray = Object.keys(this.cartGoodsList);
+				this.checkedArray = Object.keys(this.cartGoodsList);
+				
+		}
+	  
 	}
 }
 </script>
@@ -230,10 +307,13 @@ export default{
 	height: 0.22rem;
 	
 }
-._icon._icon_tick,._icon_circle{
+._icon_tick,._icon_circle{
 	margin-right: 0.16rem;
 	align-self: center;
-	margin-top: -0.22rem;
+
+}
+.listWrap{
+	margin-bottom: 0.1rem ;
 }
 .listWrap,.goodRecommend{
 	background: #fff;
@@ -243,7 +323,10 @@ export default{
 	padding: 0.19rem 0 0 0.15rem;
 	display: flex;
 	position:relative;
-
+	
+}
+.isCheckedImgWrap,.goodNum{
+	margin-top: -.13rem;
 }
 .listInfo{
 	height: 0.59rem;
@@ -272,10 +355,11 @@ export default{
 .box{
 	display: flex;
 	flex-grow: 1;
-	padding-bottom: 0.15rem;
+
 	border-bottom:1px solid #ccc;
 	position: relative;
 	box-sizing: border-box;
+	padding-bottom: 0.15rem;
 }
 .listWrap .goodsWrap:last-child .box{
 	
@@ -293,7 +377,7 @@ export default{
 	right: 0.15rem;
 	top: 50%;
 	transform: translateY(-50%);
-	margin-top: -0.11rem;
+	
 }
 .num{
 	display: inline-block;
@@ -352,25 +436,34 @@ export default{
 	background: #fff;
 	padding-left: 0.15rem;
 	display: flex;
+	width:100%;
+	box-sizing: border-box;
 	justify-content: space-between;
 	position: relative;
 	margin-top:0.15rem;
+	position: absolute;
+	bottom: 0.49rem;
+	left: 0;
 	border-bottom: 1px solid #e5e5e5;
 }
 .paymentWrap ._icon_tick{
 	margin-top: 0;
 }
-#all{
+/*#all{
 	position: absolute;
 	width: 0.2rem;
 	height: 0.2rem;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
 	opacity: 0;
 	
-}
+}*/
 label{
 	line-height:0.44rem;
 	vertical-align: top;
 	display: flex;
+	/*position: relative;*/
 }
 .allBg{
 	align-items: center;
@@ -379,7 +472,7 @@ label{
 .allText{
 	display: inline-block;
 	line-height: 0.44rem;
-	margin-left: 0.1rem;
+	
 }
 .payBtn{
 	width: 1.35rem;
@@ -411,5 +504,17 @@ em{
 	position: absolute;
 	bottom: 0.3rem;
 	left: 0;
+}
+
+.isCheckedImgWrap{
+	position: relative;
+	display: flex;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to{
+  opacity: 0;
 }
 </style>

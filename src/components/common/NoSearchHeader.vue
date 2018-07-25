@@ -41,10 +41,11 @@ export default{
     width:100%;
  	top: 0;
  	left: 0;
-  	position: sticky;
+  	position: absolute;
   	text-align: center;
   	color: #fff;
   	background: #F87D88;
+  	z-index: 10;
 }
 button{
 	color: inherit;

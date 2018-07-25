@@ -9,15 +9,18 @@
 
 <script>
 export default {
+	data(){
+		return{
+
+		}
+	},
     mounted(){
-       let myScroll = new IScroll(this.$refs.content, {
-            scrollbars: true, mouseWheel: true,
-                  probeType:3
+        this.scroll =new IScroll(this.$refs.content, {
+			probeType:3
         });
-         
-        myScroll.on('beforeScrollStart',()=>{
-               myScroll.refresh()
-           })
+        this.scroll.on('beforeScrollStart',()=>{
+        	this.scroll.refresh()
+        })
     }
 }
 </script>
@@ -27,11 +30,12 @@ export default {
 .content{
     width: 100%;
     position: absolute;
-    top: 0.44rem;
+    top: 0;
     left: 0;
+    padding-top: 0.44rem;
+    box-sizing: border-box;
     bottom: .49rem;
 	background: #f5f5f5;
-    bottom: 0.49rem;
     overflow: hidden;
     font-size:0.16rem;
 }

@@ -1,9 +1,8 @@
 <template>
 <div id="app">
-    
-    
+    <keep-alive>
          <router-view/>
-
+    </keep-alive>
     <!-- 底部 -->
     <footer>
         <router-link to="/home">
@@ -15,7 +14,7 @@
              <p>热卖</p>
         </router-link>
         <router-link to="/cart">
-             <i class="iconfont icon-03f"></i>
+             <i class="iconfont">&#xe60a;</i>
              <p>购物车</p>
         </router-link>
         <router-link to="/mine">
@@ -26,9 +25,13 @@
 </div>
 </template>
 
-
 <style scoped>
-    
+    body,html,#app{
+    	width: 100%;
+    	height: 100%;
+    	overflow: hidden;
+  
+    }
     footer{
         width:100%;
         height: .49rem;

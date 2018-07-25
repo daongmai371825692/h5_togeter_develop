@@ -23,11 +23,8 @@ const NOW_PLAYING_URL = '/v4/api/film/now-playing';
 */
 const COMING_SOON_URL = '/v4/api/film/coming-soon';
 
-//
-
 export default {
     HOME_BANNER_URL,
     NOW_PLAYING_URL,
-    COMING_SOON_URL,
-    CITY_LIST_URL,
+    COMING_SOON_URL
 }

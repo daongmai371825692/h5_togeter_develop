@@ -1,10 +1,3 @@
 <template>
-   <left-ringt></left-ringt>
-
-
+   <app-content>我的</app-content>
 </template>
-
-
-
-
-
