@@ -9,10 +9,18 @@
 
 <script>
 export default {
-    mounted(){
-        new IScroll(this.$refs.content, {
+	data(){
+		return{
 
+		}
+	},
+    mounted(){
+        this.scroll =new IScroll(this.$refs.content, {
+			probeType:3
         });
+        this.scroll.on('beforeScrollStart',()=>{
+        	this.scroll.refresh()
+        })
     }
 }
 </script>
@@ -24,8 +32,10 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+    padding-top: 0.44rem;
+    box-sizing: border-box;
     bottom: .49rem;
-    background: #F87D88;
+	background: #f5f5f5;
     overflow: hidden;
     font-size:0.16rem;
 }
