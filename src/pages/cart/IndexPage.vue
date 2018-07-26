@@ -104,9 +104,9 @@
      
      </app-content>
     	 <div class="paymentWrap">
-     		<label for="all">
+     		<label>
      		<!--	<input type="checkbox" id="all" />-->
-     			<i class="_icon " :class="isAllChecked?'_icon_tick':'_icon_circle'" @click="allChecked()" id="#all"></i>
+     			<i class="_icon " :class="isAllChecked?'_icon_tick':'_icon_circle'" @click.stop="allChecked()" id="#all"></i>
      			<span class="allText">全选</span>
      		</label>
      		
@@ -169,6 +169,11 @@ export default{
 			let checkedArray = this.currentSelected.map(item=>item.id)
 			
 			return checkedArray
+		},
+		'$route'(){
+			if(this.selectArray.length==0){
+				this.isAllChecked =true
+			}
 		}
 		
 	},
@@ -217,22 +222,17 @@ export default{
 		},
 		//全选
 		allChecked(){
-			//console.log(this.$store.getters['cart/currentSelected'])
-			if(this.selectArray){
+		
+			if(this.cartGoodsList){
 				
 				let currentSelected = this.currentSelected;
+			
+				let selectArray =this.selectArray;
 				
 				this.$store.dispatch('cart/checkedAllGoodsFromCart',currentSelected)
 				
-		   		if(this.selectArray.length==this.currentSelected.length&&this.isAllChecked ==true){
-		   			
-		   			this.isAllChecked ==true
-		   		
-		   		}else{
-		   		
-		   			this.isAllChecked=!this.isAllChecked;
-		   		}
-		   			
+				this.isAllChecked = this.$store.getters['cart/isShowAllChecked'](selectArray,currentSelected,this.isAllChecked )
+			
 		   		
 			}
 			
@@ -245,10 +245,6 @@ export default{
 			
 		}
 	  
-	},
-	
-	deactivated(){
-
 	}
 }
 </script>

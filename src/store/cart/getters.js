@@ -32,6 +32,23 @@ const getters ={
 	  		
 	  	}
 			 return countmoney
+  },
+  //判断是否显示全选
+  isShowAllChecked:state=>(cart,currentSelected,isAllChecked)=>{
+  	if(currentSelected.length ==0){
+  		  if(currentSelected.length==cart.length){
+  		  	  return !isAllChecked
+  		  }else{
+  		  	return true
+  		  }
+  	}else if(currentSelected.length != cart.length){
+  		  return true
+  	
+  	}else{
+			return false  		
+  	}
+		
+    
   }
 }
 
