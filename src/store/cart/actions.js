@@ -28,9 +28,9 @@ const actions ={
     	
     	commit(type.CHECKED_GOODS_IN_CART,goods)
     },
-    checkedAllGoodsFromCart:({commit})=>{
+    checkedAllGoodsFromCart:({commit},goodsArr)=>{
     	
-    	commit(type.CHECKED_ALL_GOODS_FROM_CART)
+    	commit(type.CHECKED_ALL_GOODS_FROM_CART,goodsArr)
     }
 }
 

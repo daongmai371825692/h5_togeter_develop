@@ -138,8 +138,11 @@ export default{
 		...Vuex.mapState({
 			cartGoodsList:state=>state.cart.cart
 		}),
+		
 		...Vuex.mapGetters({
+			//当前选择的商品(对象)
 			currentSelected:'cart/currentSelected',
+			//当前选择的商品的总价
 			AllcurrentSelectedMoney:'cart/AllcurrentSelectedMoney'
 		})
 	},
@@ -162,6 +165,10 @@ export default{
 			}else{
 				this.isAllChecked =true
 			}
+			
+			let checkedArray = this.currentSelected.map(item=>item.id)
+			
+			return checkedArray
 		}
 		
 	},
@@ -190,67 +197,58 @@ export default{
 		},
 		//切换选中状态
 		isChecked(goods){
-			
-			let carList = this.cartGoodsList;
 		
-			if(goods.selected){
-	
-				this.$store.dispatch('cart/checkedGoodsInCart',goods)
-				
-				this.checkedArray =this.checkedArray.filter(item=>{
-					
-							 return carList[item].selected
-							 
-						})
-				
-			}else{
-					if(this.checkedArray.indexOf(`p${goods.id}`) == -1){
+			this.$store.dispatch('cart/checkedGoodsInCart',goods)
 			
-						this.checkedArray.push(`p${goods.id}`)
-						
-						this.$store.dispatch('cart/checkedGoodsInCart',goods)
-					}
-					
+			if(this.selectArray.length!=this.currentSelected.length){
+				this.isAllChecked=false;
+			}else{
+				this.isAllChecked=!this.isAllChecked;
 			}
 		},
 		//删除选中商品
 		deleteGoods(){
 		
-			let carList = this.cartGoodsList;
+			let currentSelected = this.currentSelected;
 			
-			for(var i in carList){
-				
-				if(carList[i]['selected']){
-					
-						this.$store.dispatch('cart/deleteGoodsFromCart',carList[i])
-				}
-			}
+			currentSelected&&this.$store.dispatch('cart/deleteGoodsFromCart',currentSelected)
+	
 		    
 		},
 		//全选
 		allChecked(){
-			console.log(this.$store.getters['cart/currentSelected'])
+			//console.log(this.$store.getters['cart/currentSelected'])
 			if(this.selectArray){
-				this.$store.dispatch('cart/checkedAllGoodsFromCart')
+				
+				let currentSelected = this.currentSelected;
+				
+				this.$store.dispatch('cart/checkedAllGoodsFromCart',currentSelected)
+				
+		   		if(this.selectArray.length==this.currentSelected.length&&this.isAllChecked ==true){
+		   			
+		   			this.isAllChecked ==true
+		   		
+		   		}else{
 		   		
 		   			this.isAllChecked=!this.isAllChecked;
+		   		}
+		   			
 		   		
 			}
+			
 		}
 	},
 	mounted(){
 		if(this.cartGoodsList){
 				this.selectArray = Object.keys(this.cartGoodsList);
-				this.checkedArray = Object.keys(this.cartGoodsList);
-				
-				
-				
+				this.checkedArray = this.currentSelected.map(item=>item.id)
+			
 		}
 	  
 	},
 	
 	deactivated(){
-		this.isAllChecked=true;
+
 	}
 }
 </script>

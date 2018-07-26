@@ -14,7 +14,7 @@ const getters ={
 	  			}
 	  		}
 	  	}
-	  	console.log(arr)
+
 	  	return arr
   },
   AllcurrentSelectedMoney(state){

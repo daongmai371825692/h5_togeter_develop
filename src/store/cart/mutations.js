@@ -1,5 +1,6 @@
 import * as type from './type.js';
 import Vue from 'vue'
+
 const mutations ={
     //添加购物车
 	[type.CREATE_GOODS_TO_CART]:(state,goods)=>{
@@ -12,9 +13,11 @@ const mutations ={
         
     },
     //删除购物车商品
-    [type.DELETE_GOODS_FROM_CART]:(state,goods)=>{
-    
-        Vue.delete(state.cart,`p${goods.id}`)
+    [type.DELETE_GOODS_FROM_CART]:(state,goodsArr)=>{
+    	goodsArr.map(item=>{
+    		Vue.delete(state.cart,`p${item.id}`)
+    	})
+       // Vue.delete(state.cart,`p${goods.id}`)
     },
     //增加购物车的数量
     [type.ADD_GOODS_FROM_CART]:(state,goods)=>{
@@ -50,13 +53,10 @@ const mutations ={
    		 state.cart[`p${goods.id}`] =Object.assign({},item,{selected:item.selected})	
     },
     //如果全选 中则 反选，如果是非全选则 全选
-    [type.CHECKED_ALL_GOODS_FROM_CART]:(state)=>{
-    
-    	let item = state.cart;
-    	let arr =Object.keys(item).filter(key=>{
-    		return item[key].selected
-    	})
-    	if(arr.length == 0||Object.keys(item).length !=arr.length){
+    [type.CHECKED_ALL_GOODS_FROM_CART]:(state,goodsArr)=>{
+     	let item = state.cart;
+    	
+    	if(Object.keys(item).length !=goodsArr.length){
     		for(var i in item){
     			item[i]['selected'] = true
     		}
