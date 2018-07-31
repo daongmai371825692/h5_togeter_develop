@@ -2,10 +2,9 @@
     <div class="rolling" ref="rolling">
            <ul class="banner">
                <li v-for="(item,index) in bannerlist" :key="index" @click="bannerList(index,item.path)"
-               :class="{active:bannerlength ==index}">
+               :class="{active:bannerlength == index}">
                    {{item.name}}
                </li>
-               
                <li>
                     <div class="box" @click="openlist()">
                         <div></div>
@@ -49,7 +48,7 @@ export default {
                 {name:'熟食',path:''}
             ],
             bannerlist:[
-                {name:'下午茶',path:'home-list'},
+                {name:'下午茶',path:''},
                 {name:'甜品',path:''},
                 {name:'水果',path:''},
                 {name:'甜食',path:''}
@@ -77,7 +76,6 @@ export default {
         },
         bannerList(index,path){
           this.bannerlength=index
-          console.log(path)
           this.$router.push({name:path})
         }
     }
@@ -86,7 +84,7 @@ export default {
 <style scoped>
 .banner{
    display: flex;
-   
+   background: #f5f5f5
 }
 .banner li{
     flex: 1;
@@ -115,7 +113,7 @@ export default {
 .commoditylist{
     width: 100%;
     position: absolute;
-    top: 0;
+    top: .44rem;
     font-size: 0.15rem;
     z-index: 10
    
@@ -124,6 +122,7 @@ export default {
     width: 100%;
     position: absolute;
     background: #fff;
+    z-index: 10;
    
 }
 .commodity li{
@@ -146,10 +145,10 @@ export default {
 }
    @keyframes slidein{
         0%{transform: translateY(-1.41rem)}
-        100%{transform: translateY(0%)}
+        100%{transform: translateY(0)}
     }
     @keyframes slideout{
-        0%{transform:translateY(0)}
+        0%{transform:translateY(0%)}
         100%{transform: translateY(-1.41rem)}
     }
     .slide-enter-active{

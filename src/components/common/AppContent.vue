@@ -27,9 +27,10 @@ export default {
 .content{
     width: 100%;
     position: absolute;
-    top: 0;
+    top: 0.44rem;
     left: 0;
-    bottom: 0.49rem;
+    bottom: .49rem;
+	background: #f5f5f5;
     overflow: hidden;
     font-size:0.16rem;
 }

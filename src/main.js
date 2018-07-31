@@ -4,16 +4,24 @@ import router from './router'
 import store from './store'
 
 Vue.prototype.$pubsub = new Vue();
-//上下滑动
-import AppContent from './common/AppContent.vue'
+
+import AppContent from './components/common/AppContent.vue'
 Vue.component('app-content', AppContent);
 //左右滑动
-import LeftRingt from './common/LRrolling'
-Vue.component('LeftRingt',LeftRingt)
+// import LeftRingt from './common/LRrolling'
+// Vue.component('LeftRingt',LeftRingt)
 //日期过滤器
 import {formatDate} from './filter/dateFilter'
 Vue.filter('formatDate', formatDate);
 
+import NoSearchHeader from './components/common/NoSearchHeader';
+Vue.component('NoSearchHeader',NoSearchHeader)
+
+
+
+
+import AppHeader from './common/Appheader.vue'
+Vue.component('app-header',AppHeader)
 new Vue({
   router,
   store,

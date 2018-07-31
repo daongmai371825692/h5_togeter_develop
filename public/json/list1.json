@@ -1,0 +1,164 @@
+{
+    "banner": [
+        {
+            "imgUrl": "https://j-image.missfresh.cn/img_20180726163113892.jpg?iopcmd=thumbnail&type=4&width=640"
+        }
+    ],
+    "allDetail": [
+        {
+            "catigoryImg": "https://image.missfresh.cn/category_group_images/A826C9B9ADBCF183872699D9824F7F8E.JPG",
+            "detail": [
+                {
+                    "imgUrl": "https://image.missfresh.cn/e955c1647d1f4f7c82a32dc48b43f576.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "descript": "乔布斯都超爱吃的水果",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                },
+                {
+                    "imgUrl": "https://image.missfresh.cn/6d8b0f2ed3ca49a881b6cafb70f9031e.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "进口牛油果130-160g*1个",
+                    "descript": "榨果汁做烹饪 样样精通",
+                    "tag": "进口检验合格",
+                    "price": 14.9,
+                    "memberprice": null,
+                    "deprice": 4.9
+                },
+                {
+                    "imgUrl": "https://image.missfresh.cn/5be8392f96f14c6b8e25854fdbef3bb9.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "进口牛油果130-160g*1个",
+                    "descript": "拥有水亮“珠光肌”的小秘诀",
+                    "tag": "进口检验合格",
+                    "price": 14.9,
+                    "memberprice": null,
+                    "deprice": 4.9
+                },
+                {
+                    "imgUrl": "http://missfresh-fms.ufile.ucloud.cn/a0fe2b1f8cbf460e89fe97b1b464559b.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "进口牛油果130-160g*1个",
+                    "descript": "拥有水亮“珠光肌”的小秘诀",
+                    "tag": "进口检验合格",
+                    "price": 14.9,
+                    "memberprice": null,
+                    "deprice": 4.9
+                },
+                {
+                    "imgUrl": "https://image.missfresh.cn/3e382597c47743d6975c24b799ad5ba0.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "进口牛油果130-160g*1个",
+                    "descript": "拥有水亮“珠光肌”的小秘诀",
+                    "tag": "进口检验合格",
+                    "price": 14.9,
+                    "memberprice": null,
+                    "deprice": 4.9
+                }
+            ]
+        },
+        {
+            "catigoryImg": "https://image.missfresh.cn/category_group_images/D521D8BE02E602CDA35EB5D42F9FBBF2.JPG",
+            "detail": [
+                {
+                    "imgUrl": "https://image.missfresh.cn/440693632a1e4c3ba774606976a76158.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                }
+            ]
+        },
+        {
+            "catigoryImg": "https://image.missfresh.cn/category_group_images/8DBDF8B8B9503A331AC357D22B157719.JPG",
+            "detail": [
+                {
+                    "imgUrl": "https://image.missfresh.cn/72a8b81473a54e358d2ded664236a5ab.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                },
+                {
+                    "imgUrl": "https://image.missfresh.cn/21110abd5fe84ff7a9ba724638bad598.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                },
+                {
+                    "imgUrl": "https://image.missfresh.cn/ff3fbfebd0554b96bfc672527816ba38.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                }
+            ]
+        },
+        {
+            "catigoryImg": "https://image.missfresh.cn/category_group_images/0EB5C967EE8DBA714D55E8328881B25A.JPG",
+            "detail": [
+                {
+                    "imgUrl": "https://image.missfresh.cn/2fc704dd2d2944c991506a962e1d95b5.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                },
+                {
+                    "imgUrl": "https://image.missfresh.cn/b7a320208ced4b3a98ad147ba78d95f4.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                },
+                {
+                    "imgUrl": "https://image.missfresh.cn/e666b5ba8ab146ca982d765013a7634f.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                }
+            ]
+        },
+        {
+            "catigoryImg": "https://image.missfresh.cn/category_group_images/95FAD4AC3BB4169FE4E54FEBE0CB0042.JPG",
+            "detail": [
+                {
+                    "imgUrl": "https://fms-image.missfresh.cn/388d5fca54fd4f33b474582008891ea2.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                },
+                {
+                    "imgUrl": "https://image.missfresh.cn/c456260e24154adf81a39377aa0087a2.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                }
+            ]
+        },
+        {
+            "catigoryImg": "https://image.missfresh.cn/category_group_images/B911059E08DCD6511C9A99E86A939F87.JPG",
+            "detail": [
+                {
+                    "imgUrl": "https://image.missfresh.cn/89c3a29ff49b44e38d40514a97562eea.jpg?iopcmd=thumbnail&type=4&width=200",
+                    "title": "四川安岳柠檬70-90g*2个",
+                    "tag": "100%第三方权威检测",
+                    "price": 3.9,
+                    "memberprice": 7.9,
+                    "deprice": null
+                }
+            ]
+        }
+    ]
+}
