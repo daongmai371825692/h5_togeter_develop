@@ -41,11 +41,11 @@ export default {
   width: 100%;
   height:100%;
    position: relative;
-   padding: 0 0.3rem
+   padding: 0 0.3rem;
+   background: #fff
   }
 .icon-fangdajing{
   position: absolute;
-
   top:0;
   z-index: 10;
   color: #000;

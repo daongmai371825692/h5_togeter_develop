@@ -29,5 +29,4 @@ export default {
     HOME_BANNER_URL,
     NOW_PLAYING_URL,
     COMING_SOON_URL,
-    CITY_LIST_URL,
 }

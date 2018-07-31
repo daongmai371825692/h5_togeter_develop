@@ -1,6 +1,6 @@
 <template>
     <div class="hot-content">
-        <div class="address">
+        <div class="address" @click="gotocity()">
             <p>深圳</p>
             <i class="iconfont">&#xe731;</i>
         </div>
@@ -11,13 +11,40 @@
         <i class="iconfont weather">&#xe694;</i>
     </div>
 </template>
+    <script>
+    export default {
+        methods:{
+            gotocity(){
+                navigator.geolocation.getCurrentPosition(
+                    function(position){
+                        console.log('成功')
+                        console.log(position)
+                    },
+                    function(error){
+                        console.log('失败')
+                        console.log(error)
+                    }
+                )      
+            }
+        }
+    }
+    </script>
+    
+
+
+
 <style scoped>
+
+
+    
     .hot-content{
         width: 100%;
         height: .44rem;
         background: #F87D88;
         line-height: .44rem;
         color: #fff;
+        position: relative;
+        z-index: 66;
     
     }
     .hot-content,.address,.search{

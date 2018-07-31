@@ -5,12 +5,11 @@ Vue.use(Router)
 
 import Home from '@/pages/home/IndexPage.vue'
 import Hot from '@/pages/hot/IndexPage.vue'
-
 import Mine from '@/pages/mine/IndexPage.vue'
-import City from '@/pages/common/city.vue'
 
-import HomeList from '@/pages/common/home.vue'
 
+
+import Details from '../pages/home/common/details.vue'
 
 /*购物车*/
 import Cart from '@/pages/cart/IndexPage.vue'
@@ -35,7 +34,7 @@ export default new Router({
         	{
         		name:'redpacket',
         		path:'redpacket',
-           	props:true,
+            	props:true,
         		component:RedPacket
         	}
         ]
@@ -46,18 +45,14 @@ export default new Router({
         component: Mine
     },
     {
+        name:'details',
+        path:'/details/:id',
+        component:Details,
+        props:true
+    },
+    {
         path: '**',
         redirect: '/home'
-    },
-    {
-        name:'city',
-        path:'city',
-        component:City
-    },
-    {
-        name:'home-list',
-        path:'home-list',
-        component:HomeList
     }
 
   ]

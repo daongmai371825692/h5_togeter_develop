@@ -31,7 +31,6 @@ export default {
     left: 0;
     bottom: .49rem;
 	background: #f5f5f5;
-    bottom: 0.49rem;
     overflow: hidden;
     font-size:0.16rem;
 }

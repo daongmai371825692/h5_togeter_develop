@@ -1,19 +1,46 @@
-[
-    {
-        "id":"1",
-        "img":"https://j-image.missfresh.cn/img_20180723012132898.jpg?iopcmd=thumbnail&type=4&width=640"
-    },{
-        "id":"2",
-        "img":"https://j-image.missfresh.cn/img_20180723165601367.jpg?iopcmd=thumbnail&type=4&width=640"
-    },{
-        "id":"3",
-        "img":"https://j-image.missfresh.cn/img_20180723111211032.jpg?iopcmd=thumbnail&type=4&width=640"
-    },{
-        "id":"4",
-        "img":"https://j-image.missfresh.cn/img_20180723165314024.jpg?iopcmd=thumbnail&type=4&width=640"
-    },{
-        "id":"5",
-        "img":"https://j-image.missfresh.cn/img_20180723101537079.jpg?iopcmd=thumbnail&type=4&width=640"
+{
+    "data":{
+        "item":[
+            {
+                "id":1,
+                "name":"美国10R车厘子250克*1盒",
+                "goodsDesc":"从美国赶来的第一份甜",
+                "imgs":"https://fms-image.missfresh.cn/c05cf316f0374543878043cf6a736010.jpg?iopcmd=thumbnail&type=4&width=200",
+                "oporice":30,
+                "porice":28
+            },
+            {
+                "id":2,
+                "name":"云南宾川红提 500g*1盒",
+                "goodsDesc":"让你忍不住动口的诱人果香",
+                "imgs":"https://fms-image.missfresh.cn/41134d87dafb4c749640ac9393930765.jpg?iopcmd=thumbnail&type=4&width=200",
+                "oporice":30,
+                "porice":28
+            },
+            {
+                "id":3,
+                "name":"鹰嘴芒300-400g*1个",
+                "goodsDesc":"我妈妈长得像鹰嘴  我也是",
+                "imgs":"https://fms-image.missfresh.cn/3e6f9779c51d4d1eba43f44c7bf6b4fd.jpg?iopcmd=thumbnail&type=4&width=200",
+                "oporice":30,
+                "porice":28
+            },
+            {
+                "id":4,
+                "name":"皇冠梨240-340g*4个",
+                "goodsDesc":"天气这么干 吃个脆梨吧",
+                "imgs":"https://image.missfresh.cn/b05585afa5664af4a7ee2e060bb7e56f.jpg?iopcmd=thumbnail&type=4&width=200",
+                "oporice":30,
+                "porice":28
+            },
+            {
+                "id":5,
+                "name":"越南mini红肉火龙果320-450g*1个",
+                "goodsDesc":"一手能掌握的红肉心",
+                "imgs":"https://fms-image.missfresh.cn/46c48e7e8c9f401e9fc946c0d3ec7cae.jpg?iopcmd=thumbnail&type=4&width=200",
+                "oporice":30,
+                "porice":28
+            }
+        ]
     }
-
-]
+}

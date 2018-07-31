@@ -58,6 +58,7 @@ export default {
         left: 0;
         top: 0.44rem;
         background: #fff;
+        z-index: 44;
         /* display: flex; */
     }
     .nav-banner .title{

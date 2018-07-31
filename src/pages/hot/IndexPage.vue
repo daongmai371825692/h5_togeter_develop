@@ -1,7 +1,7 @@
 <template>
     <div class="hot">
         <hot-header></hot-header>
-         <app-content class="hot-content">
+         <app-content class="hot-contentd">
              <div class="hot-iscroll" ref="hotIscroll">
                     <ul class="nav-items">
                         <li class="item" :class="{active : index == clickIndex}" v-for="(item,index) in sweetList" :key="index" @click='tabClick(index)'>
@@ -65,7 +65,7 @@ export default {
 }
 </script>
 <style scoped>
-    .hot-content{
+    .hot-contentd{
         top: .44rem !important;
     }
     .hot-iscroll{

@@ -4,7 +4,7 @@
         <slot></slot>
     </div>
     <!-- 如果需要分页器 -->
-    <div class="swiper-pagination"></div>
+    <!-- <div class="swiper-pagination"></div> -->
 </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     },
     mounted(){
         this.swiper = new Swiper(this.$refs.swiper, {
-            pagination: '.swiper-pagination',
+           // pagination: '.swiper-pagination',
             autoplay: 1500,
             loop: true
         });

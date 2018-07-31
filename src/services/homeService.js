@@ -59,18 +59,52 @@ export function getNowPlayingData(page, count){
 }
 
 
-//城市列表接口
+//获取所有的商品信息接口
 
-export function getcity(){
-    return new Promise((resolve,reject)=>{
-        axios.get(API.CITY_LIST_URL,{
-            __t:new Date().getTime()
+
+
+    export function getgoodstype(id){
+        return new Promise((resolve,reject)=>{
+          axios.get('goodsType/getGoodsInfoPage',{
+             params:{
+                 id
+             }
+          })
+          .then(res=>{
+            
+            //console.log(res.data)
+            let data =res.data
+        //    let data= res.data.allDetail.map(item=>{
+        //         console.log(item.detail)
+        //         return {
+                    
+        //         }
+        //     })
+        resolve(data)
+         //console.log(data)
+          })
         })
-        .then(res=>{
-            console.log('请求成功')
+    }
+
+    export function getlist(id){
+        return new Promise((resolve,reject)=>{
+            axios.get('goodsType/getGoodsInfoById',{
+                params:{
+                    id
+                }
+            })
+            .then(res=>{
+                let banner=res.data.banner
+                
+                let data=res.data.goodDetail.find(item=>{
+                   return item.id==id
+                })
+                //console.log(data)
+                resolve({
+                    banner,
+                    data
+                })
+            })
         })
-        .catch(error=>{
-            console.log('请求失败')
-        })
-    })
-}
+    }
+

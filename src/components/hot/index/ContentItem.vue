@@ -1,11 +1,11 @@
 <template>
     <div class="content-item" ref="item">
         <div class="wrap">
-            <ul class="list">
+           
                 <li class="item" v-for="(item,index) in list" :key="index">
                     {{item}}
                 </li>
-            </ul>
+           
         </div>
     </div>
 </template>
@@ -31,6 +31,9 @@ export default {
         top: 0;
         bottom: .49rem;
         overflow: hidden;
+    }
+    .wrap{
+        width: 100%;
     }
 </style>
 
